@@ -1,12 +1,17 @@
 package it.mrt.bills.services.energy;
 
 import it.mrt.bills.dtos.energy.EnergyConsumptionDTO;
+import it.mrt.bills.dtos.filters.EnergyConsumptionFilters;
 import it.mrt.bills.entities.energy.EnergyConsumption;
 import it.mrt.bills.mappers.energy.EnergyConsumptionMapper;
+import it.mrt.bills.repositories.criterias.EnergyConsumptionCriteria;
 import it.mrt.bills.repositories.energy.EnergyConsumptionRepository;
 import it.mrt.bills.services.DbEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import java.util.Collection;
 
 @Service
 public class EnergyConsumptionService extends DbEntityService<EnergyConsumption> {
@@ -26,5 +31,10 @@ public class EnergyConsumptionService extends DbEntityService<EnergyConsumption>
         energyConsumption.setEnergyBill(energyBillService.findById(dto.getBillId()));
 
         return save(energyConsumption);
+    }
+
+    public Collection<EnergyConsumption> filter(EnergyConsumptionFilters filters) {
+        Specification<EnergyConsumption> specification = EnergyConsumptionCriteria.filter(filters);
+        return filter(specification);
     }
 }

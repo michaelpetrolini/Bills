@@ -1,6 +1,7 @@
 package it.mrt.bills.controllers;
 
 import it.mrt.bills.dtos.UserDTO;
+import it.mrt.bills.dtos.filters.UserFilters;
 import it.mrt.bills.entities.User;
 import it.mrt.bills.mappers.UserMapper;
 import it.mrt.bills.services.UserService;
@@ -55,5 +56,11 @@ public class UserController {
         }
 
         return ResponseEntity.ok(mapper.toDto(user));
+    }
+
+    @PostMapping("filter")
+    public ResponseEntity<Collection<UserDTO>> filter(@RequestBody UserFilters userFilters) {
+        Collection<UserDTO> users = userService.filter(userFilters).stream().map(mapper::toDto).toList();
+        return ResponseEntity.ok(users);
     }
 }

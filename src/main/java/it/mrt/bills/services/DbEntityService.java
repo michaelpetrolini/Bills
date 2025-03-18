@@ -4,6 +4,7 @@ package it.mrt.bills.services;
 import it.mrt.bills.entities.DbEntity;
 import it.mrt.bills.repositories.DbEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -28,6 +29,10 @@ public abstract class DbEntityService<T extends DbEntity> {
 
     public Collection<T> findAll() {
         return dbEntityRepository.findByDeletedAtNull();
+    }
+
+    protected Collection<T> filter(Specification<T> specification) {
+        return dbEntityRepository.findAll(specification);
     }
 
     public T deleteById(UUID id) {

@@ -1,6 +1,7 @@
 package it.mrt.bills.controllers.energy;
 
 import it.mrt.bills.dtos.energy.EnergyConsumptionDTO;
+import it.mrt.bills.dtos.filters.EnergyConsumptionFilters;
 import it.mrt.bills.entities.energy.EnergyConsumption;
 import it.mrt.bills.mappers.energy.EnergyConsumptionMapper;
 import it.mrt.bills.services.energy.EnergyConsumptionService;
@@ -55,5 +56,12 @@ public class EnergyConsumptionController {
         }
 
         return ResponseEntity.ok(mapper.toDto(energyConsumption));
+    }
+
+    @PostMapping("filter")
+    public ResponseEntity<Collection<EnergyConsumptionDTO>> filter(@RequestBody EnergyConsumptionFilters filters) {
+        Collection<EnergyConsumptionDTO> energyConsumptions = energyConsumptionService.filter(filters).stream().map(mapper::toDto).toList();
+
+        return ResponseEntity.ok(energyConsumptions);
     }
 }

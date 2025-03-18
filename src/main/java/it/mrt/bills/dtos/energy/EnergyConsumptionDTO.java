@@ -17,5 +17,23 @@ public class EnergyConsumptionDTO {
     private Double f3Consumption;
     private Double maxPower;
 
+    private Double f0UnitaryPrice;
+    private Double f1UnitaryPrice;
+    private Double f2UnitaryPrice;
+    private Double f3UnitaryPrice;
+
+    private Double f0TotalPrice;
+    private Double f1TotalPrice;
+    private Double f2TotalPrice;
+    private Double f3TotalPrice;
+    private Double networkLossesFee;
+
+    private Double dispatchingRate;
+    private Double fixedFee;
+    private Double variableFee;
+    private Double cdispRate;
+    private Double bonus;
+    private Double previousAdvances;
+
     private UUID billId;
 }
