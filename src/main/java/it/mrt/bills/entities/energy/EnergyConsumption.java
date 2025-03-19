@@ -1,10 +1,7 @@
 package it.mrt.bills.entities.energy;
 
 import it.mrt.bills.entities.DbEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +14,7 @@ public class EnergyConsumption extends DbEntity {
 
     private LocalDate referenceStartDate;
     private LocalDate referenceEndDate;
+    @Enumerated(EnumType.STRING)
     private ReadType readType;
 
     private Double f1Consumption;
