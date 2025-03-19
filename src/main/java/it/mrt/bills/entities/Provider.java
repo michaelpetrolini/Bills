@@ -10,5 +10,11 @@ import lombok.Setter;
 public class Provider extends DbEntity {
 
     private String name;
+    private String code;
+    private String taxCode;
+    private String vatNumber;
+    private String email;
     private String address;
+    private String website;
+    private String customerSupport;
 }

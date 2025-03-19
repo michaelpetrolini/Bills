@@ -1,6 +1,7 @@
 package it.mrt.bills.controllers;
 
 import it.mrt.bills.dtos.ProviderDTO;
+import it.mrt.bills.dtos.filters.ProviderFilters;
 import it.mrt.bills.entities.Provider;
 import it.mrt.bills.mappers.ProviderMapper;
 import it.mrt.bills.services.ProviderService;
@@ -55,5 +56,12 @@ public class ProviderController {
         }
 
         return ResponseEntity.ok(mapper.toDto(provider));
+    }
+
+    @PostMapping("filter")
+    public ResponseEntity<Collection<ProviderDTO>> filter(@RequestBody ProviderFilters filters) {
+        Collection<ProviderDTO> providers = providerService.filter(filters).stream().map(mapper::toDto).toList();
+
+        return ResponseEntity.ok(providers);
     }
 }
