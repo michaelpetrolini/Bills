@@ -35,6 +35,10 @@ public abstract class DbEntityService<T extends DbEntity> {
         return dbEntityRepository.findAll(specification);
     }
 
+    protected T findOne(Specification<T> specification) {
+        return dbEntityRepository.findOne(specification).orElse(null);
+    }
+
     public T deleteById(UUID id) {
         T entity = findById(id);
 

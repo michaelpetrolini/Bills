@@ -18,6 +18,8 @@ public class EnergyOffer extends DbEntity {
     private LocalDate validFrom;
     private LocalDate validTo;
     @Enumerated(EnumType.STRING)
+    private OfferType offerType;
+    @Enumerated(EnumType.STRING)
     private PriceType priceType;
     @Enumerated(EnumType.STRING)
     private ContractType contractType;
@@ -26,10 +28,14 @@ public class EnergyOffer extends DbEntity {
     private Double f1Rate;
     private Double f2Rate;
     private Double f3Rate;
-    private Double commercializationCosts;
     private Double dispatchingRate;
+
+
+    private Double commercializationCosts;
     private Double dispatchingRateFixed;
-    private Double bonus;
+
+    private Double annualDiscount;
+    private Double oneTimeDiscount;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "provider_id")
@@ -37,11 +43,18 @@ public class EnergyOffer extends DbEntity {
 
     public enum PriceType {
         FIXED,
-        VARIABLE
+        VARIABLE,
+        FLAT
     }
 
     public enum ContractType {
-        BIHOURLY,
-        MONOHOURLY,
-        TRADITIONAL
-    }}
+        TRIHOURLY,
+        BIHOURLY_F1_F23,
+        BIHOURLY_F12_F3,
+        MONOHOURLY
+    }
+
+    public enum OfferType {
+        PLACET
+    }
+}

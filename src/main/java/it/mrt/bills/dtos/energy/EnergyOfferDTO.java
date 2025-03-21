@@ -12,6 +12,7 @@ public class EnergyOfferDTO {
     private String name;
     private LocalDate validFrom;
     private LocalDate validTo;
+    private String offerType;
     private String priceType;
     private String contractType;
 
@@ -19,10 +20,13 @@ public class EnergyOfferDTO {
     private Double f1Rate;
     private Double f2Rate;
     private Double f3Rate;
+
     private Double commercializationCosts;
     private Double dispatchingRate;
     private Double dispatchingRateFixed;
-    private Double bonus;
+
+    private Double annualDiscount;
+    private Double oneTimeDiscount;
 
     private UUID providerId;
 }
