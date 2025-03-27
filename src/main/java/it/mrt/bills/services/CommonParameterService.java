@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Service
 public class CommonParameterService extends DbEntityService<CommonParameter> {
 
@@ -25,7 +29,7 @@ public class CommonParameterService extends DbEntityService<CommonParameter> {
     public CommonParameter save(CommonParameterDTO dto) {
         CommonParameter commonParameter = mapper.toEntity(dto);
 
-        Specification<CommonParameter> specification = CommonParameterCriteria.filter(commonParameter.getName());
+        Specification<CommonParameter> specification = CommonParameterCriteria.filterByName(commonParameter.getName());
         CommonParameter oldParameter = findOne(specification);
 
         if (oldParameter != null) {
@@ -33,5 +37,10 @@ public class CommonParameterService extends DbEntityService<CommonParameter> {
         }
 
         return save(commonParameter);
+    }
+
+    public Set<CommonParameter> findAllByNames(List<String> names) {
+        Specification<CommonParameter> specification = CommonParameterCriteria.filterByNames(names);
+        return new HashSet<>(filter(specification));
     }
 }

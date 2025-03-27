@@ -11,6 +11,7 @@ public interface CommonParameterMapper {
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "deletedAt", ignore = true)
+    @Mapping(target = "energyOffers", ignore = true)
     CommonParameter toEntity(CommonParameterDTO dto);
 
     CommonParameterDTO toDto(CommonParameter commonParameter);

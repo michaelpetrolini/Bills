@@ -12,8 +12,10 @@ public interface EnergyOfferMapper {
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "deletedAt", ignore = true)
+    @Mapping(target = "commonParameters", ignore = true)
     EnergyOffer toEntity(EnergyOfferDTO dto);
 
     @Mapping(source = "energyOffer.provider.id", target = "providerId")
+    @Mapping(target = "commonParameters", ignore = true)
     EnergyOfferDTO toDto(EnergyOffer energyOffer);
 }

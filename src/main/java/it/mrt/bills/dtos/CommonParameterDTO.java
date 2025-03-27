@@ -6,5 +6,6 @@ import lombok.Data;
 public class CommonParameterDTO {
 
     private String name;
+    private String category;
     private Double value;
 }
