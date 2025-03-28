@@ -1,5 +1,7 @@
 package it.mrt.bills.controllers.energy;
 
+import it.mrt.bills.dtos.energy.EnergyComparisonRequestDTO;
+import it.mrt.bills.dtos.energy.EnergyComparisonResultDTO;
 import it.mrt.bills.dtos.energy.EnergyOfferDTO;
 import it.mrt.bills.dtos.filters.EnergyOfferFilters;
 import it.mrt.bills.entities.energy.EnergyOffer;
@@ -63,5 +65,12 @@ public class EnergyOfferController {
         Collection<EnergyOfferDTO> energyOffers = energyOfferService.filter(filters).stream().map(mapper::toDto).toList();
 
         return ResponseEntity.ok(energyOffers);
+    }
+
+    @PostMapping("compare")
+    public ResponseEntity<Collection<EnergyComparisonResultDTO>> compare(@RequestBody EnergyComparisonRequestDTO dto) {
+        Collection<EnergyComparisonResultDTO> comparisons = energyOfferService.compare(dto);
+
+        return ResponseEntity.ok(comparisons);
     }
 }

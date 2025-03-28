@@ -21,6 +21,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class EnergyOfferService extends DbEntityService<EnergyOffer> {
+    @Autowired
+    private EnergyOfferRepository energyOfferRepository;
 
     @Autowired
     private ProviderService providerService;
@@ -55,5 +57,9 @@ public class EnergyOfferService extends DbEntityService<EnergyOffer> {
     public Collection<EnergyOffer> filter(EnergyOfferFilters filters) {
         Specification<EnergyOffer> specification = EnergyOfferCriteria.filter(filters);
         return filter(specification);
+    }
+
+    public Collection<EnergyComparisonResultDTO> compare(EnergyComparisonRequestDTO request) {
+        return energyOfferRepository.calculateComparison(request);
     }
 }
