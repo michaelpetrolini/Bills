@@ -19,6 +19,7 @@ public class EnergyOffer extends DbEntity {
     private String name;
     private LocalDate validFrom;
     private LocalDate validTo;
+    private Boolean dualOffer;
     @Enumerated(EnumType.STRING)
     private OfferType offerType;
     @Enumerated(EnumType.STRING)
@@ -36,12 +37,7 @@ public class EnergyOffer extends DbEntity {
     private Double f1f2Rate;
     private Double dispatchingRate;
     private Double energyFixedFee;
-
-
     private Double commercializationCosts;
-
-    private Double annualDiscount;
-    private Double oneTimeDiscount;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "provider_id")
@@ -52,6 +48,9 @@ public class EnergyOffer extends DbEntity {
             joinColumns=@JoinColumn(name="energy_offer_id"),
             inverseJoinColumns=@JoinColumn(name="common_parameter_id"))
     private Set<CommonParameter> commonParameters;
+
+    @OneToMany(mappedBy = "energyOffer", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<EnergyBonus> energyBonuses;
 
     public enum PriceType {
         FIXED,

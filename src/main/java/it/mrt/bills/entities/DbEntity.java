@@ -30,4 +30,5 @@ public abstract class DbEntity {
     @PreUpdate
     protected void preUpdate() {
         updatedAt = LocalDateTime.now();
-    }}
+    }
+}
