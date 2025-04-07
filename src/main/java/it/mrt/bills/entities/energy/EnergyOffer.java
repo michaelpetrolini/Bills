@@ -67,7 +67,8 @@ public class EnergyOffer extends DbEntity {
     }
 
     public enum OfferType {
-        PLACET
+        PLACET,
+        FREE_MARKET
     }
 
     public enum CustomerType {
