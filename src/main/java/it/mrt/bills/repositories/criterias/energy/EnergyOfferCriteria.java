@@ -1,4 +1,4 @@
-package it.mrt.bills.repositories.criterias;
+package it.mrt.bills.repositories.criterias.energy;
 
 import it.mrt.bills.dtos.filters.EnergyOfferFilters;
 import it.mrt.bills.entities.energy.EnergyOffer;

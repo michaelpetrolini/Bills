@@ -4,7 +4,7 @@ import it.mrt.bills.dtos.energy.EnergyBillDTO;
 import it.mrt.bills.dtos.filters.EnergyBillFilters;
 import it.mrt.bills.entities.energy.EnergyBill;
 import it.mrt.bills.mappers.energy.EnergyBillMapper;
-import it.mrt.bills.repositories.criterias.EnergyBillCriteria;
+import it.mrt.bills.repositories.criterias.energy.EnergyBillCriteria;
 import it.mrt.bills.repositories.energy.EnergyBillRepository;
 import it.mrt.bills.services.DbEntityService;
 import it.mrt.bills.services.UserService;

@@ -4,7 +4,7 @@ import it.mrt.bills.dtos.energy.EnergyContractDTO;
 import it.mrt.bills.dtos.filters.EnergyContractFilters;
 import it.mrt.bills.entities.energy.EnergyContract;
 import it.mrt.bills.mappers.energy.EnergyContractMapper;
-import it.mrt.bills.repositories.criterias.EnergyContractCriteria;
+import it.mrt.bills.repositories.criterias.energy.EnergyContractCriteria;
 import it.mrt.bills.repositories.energy.EnergyContractRepository;
 import it.mrt.bills.services.DbEntityService;
 import it.mrt.bills.services.UserService;

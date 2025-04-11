@@ -7,7 +7,7 @@ import it.mrt.bills.dtos.filters.EnergyOfferFilters;
 import it.mrt.bills.entities.energy.EnergyOffer;
 import it.mrt.bills.mappers.energy.EnergyBonusMapper;
 import it.mrt.bills.mappers.energy.EnergyOfferMapper;
-import it.mrt.bills.repositories.criterias.EnergyOfferCriteria;
+import it.mrt.bills.repositories.criterias.energy.EnergyOfferCriteria;
 import it.mrt.bills.repositories.energy.EnergyOfferRepository;
 import it.mrt.bills.services.CommonParameterService;
 import it.mrt.bills.services.DbEntityService;

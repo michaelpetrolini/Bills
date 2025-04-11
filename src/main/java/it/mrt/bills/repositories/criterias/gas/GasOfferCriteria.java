@@ -1,7 +1,7 @@
-package it.mrt.bills.repositories.criterias;
+package it.mrt.bills.repositories.criterias.gas;
 
-import it.mrt.bills.dtos.filters.EnergyContractFilters;
-import it.mrt.bills.entities.energy.EnergyContract;
+import it.mrt.bills.dtos.filters.GasOfferFilters;
+import it.mrt.bills.entities.gas.GasOffer;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -11,14 +11,14 @@ import org.springframework.data.jpa.domain.Specification;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnergyContractCriteria {
+public class GasOfferCriteria {
 
-    public static Specification<EnergyContract> filter(EnergyContractFilters filters) {
-        return (Root<EnergyContract> root, CriteriaQuery<?> _, CriteriaBuilder cb) -> {
+    public static Specification<GasOffer> filter(GasOfferFilters filters) {
+        return (Root<GasOffer> root, CriteriaQuery<?> _, CriteriaBuilder cb) -> {
             List<Predicate> predicates = new ArrayList<>();
 
-            if (filters.getPodCode() != null) {
-                predicates.add(cb.equal(root.get("podCode"), filters.getPodCode()));
+            if (filters.getCode() != null) {
+                predicates.add(cb.equal(root.get("code"), filters.getCode()));
             }
 
             if (predicates.isEmpty()) {

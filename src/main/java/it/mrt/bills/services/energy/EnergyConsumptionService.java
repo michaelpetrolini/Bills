@@ -4,7 +4,7 @@ import it.mrt.bills.dtos.energy.EnergyConsumptionDTO;
 import it.mrt.bills.dtos.filters.EnergyConsumptionFilters;
 import it.mrt.bills.entities.energy.EnergyConsumption;
 import it.mrt.bills.mappers.energy.EnergyConsumptionMapper;
-import it.mrt.bills.repositories.criterias.EnergyConsumptionCriteria;
+import it.mrt.bills.repositories.criterias.energy.EnergyConsumptionCriteria;
 import it.mrt.bills.repositories.energy.EnergyConsumptionRepository;
 import it.mrt.bills.services.DbEntityService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -26,11 +26,11 @@ public interface EnergyOfferRepository extends DbEntityRepository<EnergyOffer> {
             -- Dispatching Quotas
             DispatchingQuotas AS (
                 SELECT
-                    SUM(CASE WHEN category = 'DISPATCHING_FIXED_QUOTA' THEN value ELSE 0 END) AS dispatching_fixed,
-                    SUM(CASE WHEN category = 'DISPATCHING_POWER_QUOTA' THEN value ELSE 0 END) AS dispatching_power,
-                    SUM(CASE WHEN category = 'DISPATCHING_ENERGY_QUOTA' THEN value ELSE 0 END) AS dispatching_energy,
-                    SUM(CASE WHEN category = 'SYSTEM_CHARGES_ENERGY_QUOTA' THEN value ELSE 0 END) AS system_charges_power_quota,
-                    SUM(CASE WHEN category = 'TAXES_VARIABLE' THEN value ELSE 0 END) AS taxes_variable
+                    SUM(CASE WHEN category = 'ENERGY_DISPATCHING_FIXED_QUOTA' THEN value ELSE 0 END) AS dispatching_fixed,
+                    SUM(CASE WHEN category = 'ENERGY_DISPATCHING_POWER_QUOTA' THEN value ELSE 0 END) AS dispatching_power,
+                    SUM(CASE WHEN category = 'ENERGY_DISPATCHING_ENERGY_QUOTA' THEN value ELSE 0 END) AS dispatching_energy,
+                    SUM(CASE WHEN category = 'ENERGY_SYSTEM_CHARGES_ENERGY_QUOTA' THEN value ELSE 0 END) AS system_charges_power_quota,
+                    SUM(CASE WHEN category = 'ENERGY_TAXES_VARIABLE' THEN value ELSE 0 END) AS taxes_variable
                 FROM bills.common_parameter
             ),
             -- Bonuses
