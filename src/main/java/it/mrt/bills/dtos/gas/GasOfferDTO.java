@@ -2,6 +2,7 @@ package it.mrt.bills.dtos.gas;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -20,8 +21,8 @@ public class GasOfferDTO {
     private String priceType;
     private String customerType;
 
-    private Double singleRate;
-    private Double gasFixedFee;
+    private BigDecimal singleRate;
+    private BigDecimal gasFixedFee;
 
     private UUID providerId;
 

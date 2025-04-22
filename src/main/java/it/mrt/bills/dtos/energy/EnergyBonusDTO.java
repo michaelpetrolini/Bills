@@ -2,6 +2,7 @@ package it.mrt.bills.dtos.energy;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -10,7 +11,7 @@ public class EnergyBonusDTO {
 
     private String name;
     private String description;
-    private Double value;
+    private BigDecimal value;
 
     private Boolean alwaysApplicable;
     private Boolean subjectToTaxation;

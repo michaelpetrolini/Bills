@@ -2,6 +2,7 @@ package it.mrt.bills.dtos.gas;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -12,7 +13,7 @@ public class GasConsumptionDTO {
     private LocalDate referenceStartDate;
     private LocalDate referenceEndDate;
     private String readType;
-    private Double consumption;
+    private BigDecimal consumption;
 
     private UUID billId;
 }

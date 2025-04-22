@@ -2,6 +2,7 @@ package it.mrt.bills.dtos.energy;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -14,9 +15,9 @@ public class EnergyContractDTO {
     private String podCode;
     private String customerCode;
     private Integer voltageSupply;
-    private Double contractuallyCommittedPower;
-    private Double availablePower;
-    private Double maxPower;
+    private BigDecimal contractuallyCommittedPower;
+    private BigDecimal availablePower;
+    private BigDecimal maxPower;
     private String customerType;
 
     private UUID userId;

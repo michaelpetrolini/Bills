@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,11 +15,11 @@ public class GasComparisonResultDTO {
 
     private String code;
     private String name;
-    private Double gasCost;
-    private Double dispatchingCost;
-    private Double systemCharges;
-    private Double bonus;
-    private Double vat;
-    private Double taxes;
-    private Double totalAmount;
+    private BigDecimal gasCost;
+    private BigDecimal dispatchingCost;
+    private BigDecimal systemCharges;
+    private BigDecimal bonus;
+    private BigDecimal vat;
+    private BigDecimal taxes;
+    private BigDecimal totalAmount;
 }

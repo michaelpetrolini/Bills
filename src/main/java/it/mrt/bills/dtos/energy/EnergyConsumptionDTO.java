@@ -2,6 +2,7 @@ package it.mrt.bills.dtos.energy;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -12,28 +13,28 @@ public class EnergyConsumptionDTO {
     private LocalDate referenceEndDate;
     private String readType;
 
-    private Double f1Consumption;
-    private Double f2Consumption;
-    private Double f3Consumption;
-    private Double maxPower;
+    private BigDecimal f1Consumption;
+    private BigDecimal f2Consumption;
+    private BigDecimal f3Consumption;
+    private BigDecimal maxPower;
 
-    private Double f0UnitaryPrice;
-    private Double f1UnitaryPrice;
-    private Double f2UnitaryPrice;
-    private Double f3UnitaryPrice;
+    private BigDecimal f0UnitaryPrice;
+    private BigDecimal f1UnitaryPrice;
+    private BigDecimal f2UnitaryPrice;
+    private BigDecimal f3UnitaryPrice;
 
-    private Double f0TotalPrice;
-    private Double f1TotalPrice;
-    private Double f2TotalPrice;
-    private Double f3TotalPrice;
-    private Double networkLossesFee;
+    private BigDecimal f0TotalPrice;
+    private BigDecimal f1TotalPrice;
+    private BigDecimal f2TotalPrice;
+    private BigDecimal f3TotalPrice;
+    private BigDecimal networkLossesFee;
 
-    private Double dispatchingRate;
-    private Double fixedFee;
-    private Double variableFee;
-    private Double cdispRate;
-    private Double bonus;
-    private Double previousAdvances;
+    private BigDecimal dispatchingRate;
+    private BigDecimal fixedFee;
+    private BigDecimal variableFee;
+    private BigDecimal cdispRate;
+    private BigDecimal bonus;
+    private BigDecimal previousAdvances;
 
     private UUID billId;
 }

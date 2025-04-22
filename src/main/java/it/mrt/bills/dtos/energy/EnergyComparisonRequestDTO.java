@@ -2,15 +2,16 @@ package it.mrt.bills.dtos.energy;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
 public class EnergyComparisonRequestDTO {
 
-    private Double f1Consumption;
-    private Double f2Consumption;
-    private Double f3Consumption;
-    private Double powerSupply;
+    private BigDecimal f1Consumption;
+    private BigDecimal f2Consumption;
+    private BigDecimal f3Consumption;
+    private BigDecimal powerSupply;
 
     private String offerType;
     private String priceType;

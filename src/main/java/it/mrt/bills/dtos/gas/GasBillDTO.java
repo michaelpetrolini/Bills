@@ -2,6 +2,7 @@ package it.mrt.bills.dtos.gas;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -16,18 +17,18 @@ public class GasBillDTO {
     private LocalDate dueDate;
     private String url;
 
-    private Double gasSupplyTotalCost;
-    private Double gasSupplyFixedCost;
-    private Double gasCost;
+    private BigDecimal gasSupplyTotalCost;
+    private BigDecimal gasSupplyFixedCost;
+    private BigDecimal gasCost;
 
-    private Double deliveryAndManagementCost;
-    private Double deliveryAndManagementFixedCost;
-    private Double deliveryAndManagementVariableCost;
+    private BigDecimal deliveryAndManagementCost;
+    private BigDecimal deliveryAndManagementFixedCost;
+    private BigDecimal deliveryAndManagementVariableCost;
 
-    private Double recalculations;
-    private Double otherCosts;
-    private Double socialBonus;
-    private Double taxes;
+    private BigDecimal recalculations;
+    private BigDecimal otherCosts;
+    private BigDecimal socialBonus;
+    private BigDecimal taxes;
 
     private UUID userId;
     private UUID offerId;

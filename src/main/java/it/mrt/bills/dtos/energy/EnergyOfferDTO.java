@@ -2,6 +2,7 @@ package it.mrt.bills.dtos.energy;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -19,16 +20,16 @@ public class EnergyOfferDTO {
     private String contractType;
     private String customerType;
 
-    private Double singleRate;
-    private Double f1Rate;
-    private Double f2Rate;
-    private Double f3Rate;
-    private Double f2f3Rate;
-    private Double f1f2Rate;
-    private Double dispatchingRate;
-    private Double energyFixedFee;
+    private BigDecimal singleRate;
+    private BigDecimal f1Rate;
+    private BigDecimal f2Rate;
+    private BigDecimal f3Rate;
+    private BigDecimal f2f3Rate;
+    private BigDecimal f1f2Rate;
+    private BigDecimal dispatchingRate;
+    private BigDecimal energyFixedFee;
 
-    private Double commercializationCosts;
+    private BigDecimal commercializationCosts;
 
     private UUID providerId;
 

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,11 +14,11 @@ import lombok.Setter;
 public class EnergyComparisonResultDTO {
     private String code;
     private String name;
-    private Double energyCost;
-    private Double dispatchingCost;
-    private Double systemCharges;
-    private Double bonus;
-    private Double exciseTax;
-    private Double taxes;
-    private Double totalAmount;
+    private BigDecimal energyCost;
+    private BigDecimal dispatchingCost;
+    private BigDecimal systemCharges;
+    private BigDecimal bonus;
+    private BigDecimal exciseTax;
+    private BigDecimal taxes;
+    private BigDecimal totalAmount;
 }
