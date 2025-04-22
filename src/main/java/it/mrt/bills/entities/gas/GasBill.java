@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -23,18 +24,28 @@ public class GasBill extends DbEntity {
 
 
     //Costs
-    private Double gasSupplyTotalCost;
-    private Double gasSupplyFixedCost;
-    private Double gasCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal gasSupplyTotalCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal gasSupplyFixedCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal gasCost;
 
-    private Double deliveryAndManagementCost;
-    private Double deliveryAndManagementFixedCost;
-    private Double deliveryAndManagementVariableCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal deliveryAndManagementCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal deliveryAndManagementFixedCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal deliveryAndManagementVariableCost;
 
-    private Double recalculations;
-    private Double otherCosts;
-    private Double socialBonus;
-    private Double taxes;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal recalculations;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal otherCosts;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal socialBonus;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal taxes;
 
 
     @ManyToOne(fetch = FetchType.EAGER)

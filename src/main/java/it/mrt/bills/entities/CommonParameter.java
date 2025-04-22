@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -18,10 +19,12 @@ public class CommonParameter extends DbEntity {
     private ParameterType name;
     @Enumerated(EnumType.STRING)
     private Category category;
-    private Double value;
+    @Column(precision = 20, scale = 10)
+    private BigDecimal value;
 
-    private Double start;
-    private Double end;
+    private Integer start;
+    @Column(name = "`end`")
+    private Integer end;
 
     @ManyToMany(mappedBy = "commonParameters", fetch = FetchType.LAZY)
     private Set<EnergyOffer> energyOffers;

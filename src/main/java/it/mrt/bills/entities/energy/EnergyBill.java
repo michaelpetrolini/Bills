@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -25,26 +26,41 @@ public class EnergyBill extends DbEntity {
 
 
     //Cost section
-    private Double totalCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal totalCost;
 
     //Energy costs
-    private Double energySupplyCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal energySupplyCost;
 
-    private Double deliveryAndManagementCost;
-    private Double systemCharges;
-    private Double otherCharges;
-    private Double taxes;
-    private Double tvSubscriptionFee;
-    private Double latePaymentInterest;
-    private Double previouslyUnpaidInvoicesCharges;
-    private Double contractualCharges;
-    private Double disconnectionReconnectionCost;
-    private Double securityDeposit;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal deliveryAndManagementCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal systemCharges;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal otherCharges;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal taxes;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal tvSubscriptionFee;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal latePaymentInterest;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal previouslyUnpaidInvoicesCharges;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal contractualCharges;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal disconnectionReconnectionCost;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal securityDeposit;
 
-    private Double discount;
-    private Double recalculations;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal discount;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal recalculations;
 
-    private Double energyConsumption;
+    @Column(precision = 10, scale = 5)
+    private BigDecimal energyConsumption;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")

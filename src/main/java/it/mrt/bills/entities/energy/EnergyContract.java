@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -19,9 +20,12 @@ public class EnergyContract extends DbEntity {
     private String podCode;
     private String customerCode;
     private Integer voltageSupply;
-    private Double contractuallyCommittedPower;
-    private Double availablePower;
-    private Double maxPower;
+    @Column(precision = 3, scale = 1)
+    private BigDecimal contractuallyCommittedPower;
+    @Column(precision = 3, scale = 1)
+    private BigDecimal availablePower;
+    @Column(precision = 4, scale = 2)
+    private BigDecimal maxPower;
 
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;

@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -23,8 +24,10 @@ public class GasOffer extends DbEntity {
     private Boolean dualOffer;
     private Boolean hasLimitations;
 
-    private Double singleRate;
-    private Double gasFixedFee;
+    @Column(precision = 10, scale = 9)
+    private BigDecimal singleRate;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal gasFixedFee;
 
     @Enumerated(EnumType.STRING)
     private OfferType offerType;

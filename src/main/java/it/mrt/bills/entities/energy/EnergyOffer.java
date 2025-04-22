@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -29,15 +30,24 @@ public class EnergyOffer extends DbEntity {
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;
 
-    private Double singleRate;
-    private Double f1Rate;
-    private Double f2Rate;
-    private Double f3Rate;
-    private Double f2f3Rate;
-    private Double f1f2Rate;
-    private Double dispatchingRate;
-    private Double energyFixedFee;
-    private Double commercializationCosts;
+    @Column(precision = 20, scale = 10)
+    private BigDecimal singleRate;
+    @Column(name = "f1_rate", precision = 20, scale = 10)
+    private BigDecimal f1Rate;
+    @Column(name = "f2_rate", precision = 20, scale = 10)
+    private BigDecimal f2Rate;
+    @Column(name = "f3_rate", precision = 20, scale = 10)
+    private BigDecimal f3Rate;
+    @Column(name = "f2f3_rate", precision = 20, scale = 10)
+    private BigDecimal f2f3Rate;
+    @Column(name = "f1f2_rate", precision = 20, scale = 10)
+    private BigDecimal f1f2Rate;
+    @Column(precision = 20, scale = 10)
+    private BigDecimal dispatchingRate;
+    @Column(precision = 20, scale = 10)
+    private BigDecimal energyFixedFee;
+    @Column(precision = 20, scale = 10)
+    private BigDecimal commercializationCosts;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "provider_id")

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
@@ -13,7 +15,8 @@ public class EnergyBonus extends DbEntity {
     private String name;
     @Column(columnDefinition="text")
     private String description;
-    private Double value;
+    @Column(precision = 10, scale = 5)
+    private BigDecimal value;
 
     private Boolean alwaysApplicable;
     private Boolean subjectToTaxation;

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -17,28 +18,47 @@ public class EnergyConsumption extends DbEntity {
     @Enumerated(EnumType.STRING)
     private ReadType readType;
 
-    private Double f1Consumption;
-    private Double f2Consumption;
-    private Double f3Consumption;
-    private Double maxPower;
+    @Column(name = "f1_consumption", precision = 10, scale = 5)
+    private BigDecimal f1Consumption;
+    @Column(name = "f2_consumption", precision = 10, scale = 5)
+    private BigDecimal f2Consumption;
+    @Column(name = "f3_consumption", precision = 10, scale = 5)
+    private BigDecimal f3Consumption;
+    @Column(precision = 10, scale = 5)
+    private BigDecimal maxPower;
 
-    private Double f0UnitaryPrice;
-    private Double f1UnitaryPrice;
-    private Double f2UnitaryPrice;
-    private Double f3UnitaryPrice;
+    @Column(name = "f0_unitary_price", precision = 10, scale = 9)
+    private BigDecimal f0UnitaryPrice;
+    @Column(name = "f1_unitary_price", precision = 10, scale = 9)
+    private BigDecimal f1UnitaryPrice;
+    @Column(name = "f2_unitary_price", precision = 10, scale = 9)
+    private BigDecimal f2UnitaryPrice;
+    @Column(name = "f3_unitary_price", precision = 10, scale = 9)
+    private BigDecimal f3UnitaryPrice;
 
-    private Double f0TotalPrice;
-    private Double f1TotalPrice;
-    private Double f2TotalPrice;
-    private Double f3TotalPrice;
-    private Double networkLossesFee;
+    @Column(name = "f0_total_price", precision = 10, scale = 2)
+    private BigDecimal f0TotalPrice;
+    @Column(name = "f1_total_price", precision = 10, scale = 2)
+    private BigDecimal f1TotalPrice;
+    @Column(name = "f2_total_price", precision = 10, scale = 2)
+    private BigDecimal f2TotalPrice;
+    @Column(name = "f3_total_price", precision = 10, scale = 2)
+    private BigDecimal f3TotalPrice;
+    @Column(name = "network_losses_fee", precision = 10, scale = 2)
+    private BigDecimal networkLossesFee;
 
-    private Double dispatchingRate;
-    private Double fixedFee;
-    private Double variableFee;
-    private Double cdispRate;
-    private Double bonus;
-    private Double previousAdvances;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal dispatchingRate;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal fixedFee;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal variableFee;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal cdispRate;
+    @Column(precision = 10, scale = 5)
+    private BigDecimal bonus;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal previousAdvances;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bill_id")

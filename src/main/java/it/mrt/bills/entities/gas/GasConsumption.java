@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -17,7 +18,8 @@ public class GasConsumption extends DbEntity {
     @Enumerated(EnumType.STRING)
     private ReadType readType;
 
-    private Double consumption;
+    @Column(precision = 20, scale = 10)
+    private BigDecimal consumption;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bill_id")
