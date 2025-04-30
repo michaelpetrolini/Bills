@@ -28,4 +28,8 @@ public class UserCriteria {
             return cb.and(predicates.toArray(new Predicate[0]));
         };
     }
+
+    public static Specification<User> byEmail(String email) {
+        return (Root<User> root, CriteriaQuery<?> _, CriteriaBuilder cb) -> cb.equal(root.get("email"), email);
+    }
 }

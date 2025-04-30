@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.UUID;
 
 public abstract class DbEntityService<T extends DbEntity> {
@@ -37,6 +38,10 @@ public abstract class DbEntityService<T extends DbEntity> {
 
     protected T findOne(Specification<T> specification) {
         return dbEntityRepository.findOne(specification).orElse(null);
+    }
+
+    protected Optional<T> findOneOptional(Specification<T> specification) {
+        return dbEntityRepository.findOne(specification);
     }
 
     public T deleteById(UUID id) {

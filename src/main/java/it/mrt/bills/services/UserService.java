@@ -11,6 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class UserService extends DbEntityService<User> {
@@ -31,5 +32,11 @@ public class UserService extends DbEntityService<User> {
         Specification<User> specification = UserCriteria.filter(filters);
 
         return filter(specification);
+    }
+
+    public Optional<User> findByEmail(String email) {
+        Specification<User> specification = UserCriteria.byEmail(email);
+
+        return findOneOptional(specification);
     }
 }
